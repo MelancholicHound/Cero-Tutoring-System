@@ -1,0 +1,187 @@
+body {
+  margin-top: 8vh;
+  width: 100%;
+  form {
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    top: 8vh;
+    height: 18vh;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    header {
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      background-color: #ffffff;
+      img {
+        height: 10.5vh;
+      }
+      .username-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h3 {
+          font-weight: bolder;
+          margin: 0;
+        }
+        p {
+          margin: 0;
+          font-size: 14px;
+        }
+        .buttons {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          margin-top: 10px;
+          button {
+            height: 4.5vh;
+            font-weight: bolder;
+            border: 1px solid #112a40;
+            border-radius: 30px;
+          }
+          .view {
+            width: 30vw;
+            color: #195b8b;
+          }
+          .signout {
+            width: 25vw;
+            background-color: #195b8b;
+            color: #f2f8fd;
+          }
+        }
+      }
+    }
+    .content {
+      width: 100%;
+      padding: 7.5vw;
+      display: none;
+      flex-direction: column;
+      .fullname {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .gender {
+        display: flex;
+        justify-content: center;
+        padding: 15px 0;
+        gap: 20px;
+        .form-check.form-check-inline {
+          margin: 0;
+          padding-bottom: 0;
+        }
+        p {
+          margin: 0;
+        }
+      }
+      .birthdate {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0 15px 0;
+        .birthday, .age {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 5px;
+          p {
+            margin: 0;
+          }
+        }
+        .birthday {
+          display: flex;
+          input {
+            width: 35vw;
+          }
+        }
+        .age {
+          input {
+            width: 12vw;
+          }
+        }
+      }
+      .user-creds {
+        margin-top: 15px;
+        display: flex;
+        gap: 20px;
+      }
+    }
+  }
+
+  .lesson {
+    z-index: -1;
+    position: absolute;
+    top: 29vh;
+    width: 100%;
+    padding: 0 30px;
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      h5 {
+        color: grey;
+      }
+    }
+    .progress {
+      width: 100%;
+      .progress-bar {
+        border-radius: 10px;
+        background-color: #195b8b;
+      }
+    }
+  }
+  .statistics {
+    z-index: -1;
+    position: absolute;
+    top: 35vh;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    .dough {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}
+@keyframes expandingForwardAnimation {
+  0% {
+    height: 18vh;
+  }
+  100% {
+    height: 100vh;
+  }
+}
+@keyframes expandingBackwardAnimation {
+  0% {
+    height: 100vh;
+  }
+  100% {
+    height: 18vh;
+  }
+}
+
+.animateForwards {
+  animation: expandingForwardAnimation 1.4s ease forwards;
+}
+.animateBackwards {
+  animation: expandingBackwardAnimation 1.4s ease forwards;
+}
+.modal {
+  .modal-body {
+    text-align: center;
+  }
+  .modal-footer {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+  }
+}

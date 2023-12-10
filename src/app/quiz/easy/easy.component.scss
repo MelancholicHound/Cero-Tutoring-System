@@ -1,0 +1,56 @@
+.card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+li {
+  list-style-type: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
+ol {
+  padding: 0;
+}
+.row {
+  padding: 0 20px;
+}
+button.btn {
+  border: none;
+  text-align: center;
+  span {
+    font-size: 30px;
+  }
+}
+.result {
+  border: 1px solid #1d1d1f;
+  h3.congrats {
+    margin: 10px 0;
+    padding: 10px 0;
+    border: 1px solid #1d1d1f;
+  }
+  .earned {
+    width: 100%;
+    border: 1px solid #1d1d1f;
+    margin: 10px 0;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      margin: 0;
+    }
+    ul {
+      padding: 0;
+      li {
+        list-style-type: disc;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: justify;
+      }
+    }
+  }
+}
+div.container {
+  width: 100vw;
+}

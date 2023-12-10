@@ -1,0 +1,132 @@
+<body class="lesson-body">
+  <div class="front-part">
+    <div class="default">
+      <div class="search-section">
+        <h1>Search</h1>
+        <div class="search input-group">
+          <form action="" class="d-flex" role="search">
+            <input type="search" class="form-control me-2" id="search-field" aria-label="Search" (input)="generateDropdown()">
+          </form>
+        </div>
+      </div>
+      <div class="modules-section">
+        <h1 class="module-header">Modules</h1>
+        <div class="module-holder">
+          <div class="modules" *ngFor="let module of modules">
+            <div class="module card" (click)="onClickModule(module)">
+              <h1>{{module.mod_name}}</h1>
+              <p>{{module.mod_author}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lesson-part" *ngFor="let model of module">
+      <button class="back-button" (click)="backDefaultButton()">
+        <span class="material-symbols-rounded">arrow_back</span>
+      </button>
+      <header class="module-header">
+        <h1>{{model.mod_name}}</h1>
+        <p>{{model.mod_author}}</p>
+      </header>
+      <div class="chapters card">
+        <div class="chapter-holder" >
+          <button *ngFor="let chapters of chapters" >
+            <div class="card" (click)="seePreview(chapters)">
+              <img src="assets/icons/Cero.png" alt="">
+              <p>{{chapters.chap_name}}</p>
+            </div>
+          </button>
+        </div>
+        <div class="chapter-content" *ngFor="let chapter of chapterCount">
+          <h1>{{chapter.chap_name}}</h1>
+          <h2>{{chapter.chap_title}}</h2>
+          <div class="preview">
+            <p>{{chapter.chapter_description.objectives}}</p>
+            <p class="objective-label">Objectives:</p>
+            <ul class="bullets" *ngFor="let bullet of chapter.chapter_description.bullets">
+              <li>{{bullet.text}}</li>
+            </ul>
+          </div>
+          <div class="buttons">
+            <button class="read-button" id="read-button" (click)="readChapter()">Read</button>
+            <button class="abort-button" id="abort-button" (click)="backChaptersButton()">Go Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="back-part">
+    <div id="lesson-division">
+      <nav class="lesson-nav">
+        <div class="nav-button">
+          <button class="lesson-button" id="lesson-button">
+            <p>Lesson</p>
+          </button>
+          <button class="question-button" id="question-button">
+            <p>Question</p>
+          </button>
+        </div>
+        <div class="progress">
+          <div class="progress-bar"></div>
+        </div>
+      </nav>
+      <div class="lesson-content" *ngFor="let lesson of lesson">
+        <h1 class="lesson-header">
+          {{lesson.chapter_content[partCounter]?.header}}
+        </h1>
+        <div class="paragraph">
+          <ol *ngFor="let paragraph of lesson.chapter_content[partCounter]?.paragraph">
+            <li><p>{{paragraph.parag}}</p></li>
+          </ol>
+        </div>
+      </div>
+      <div class="question-content" *ngFor="let lesson of lesson">
+        <h1><b>Here is a question for you!</b></h1>
+        <div class="question">
+          <div class="card">
+            <h3>{{lesson.chapter_content[partCounter]?.question?.questionText}}</h3>
+          </div>
+        </div>
+        <div class="options">
+          <ol class="choices" *ngFor="let option of lesson.chapter_content[partCounter]?.question?.options">
+            <li (click)="answer(option)">
+              <div appChangeBg [isCorrect]="option.correct" class="card">
+                {{option.text}}
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="proceed">
+          <div class="wrong-answer">
+            <p>Redirecting you to lesson page in</p>
+            <p>{{redirectTo}} seconds.</p>
+          </div>
+          <button class="proceed-button" disabled="true">Proceed to Next Lesson</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<div class="modal complete fade" id="completeModal" data-bs-backdrop="static" aria-labelledby="completeLabel" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="completeModal">Congratulations!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-target="#completeModal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>You have completed Chapter {{chapterValue}} and unlocked Chapter {{chapterValue + 1}}!</p>
+        <p>Would you like to continue?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="back-button" id="goLesson" (click)="backModalButton()">
+          Go Back
+        </button>
+        <button class="continue-button" (click)="nextChapterButton()">
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

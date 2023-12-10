@@ -1,0 +1,239 @@
+<body class="main">
+    <header class="header">
+      <div class="user">
+        <img src="assets\icons\Cero.png" alt="">
+        <div class="prog-label">
+          <h1>Hi, {{username}}!</h1>
+          <p class="title">{{equippedTitle}}</p>
+          <button class="view-title" data-bs-toggle="modal" data-bs-target="#titleModal" (click)="toggleTitles()">View Titles</button>
+        </div>
+      </div>
+    </header>
+  <nav class="navigation">
+    <button (click)="toggleGame()" class="game" type="button" id="gameButton">
+      <span class="material-symbols-rounded">stadia_controller</span>
+      <p>Game</p>
+    </button>
+    <button (click)="toggleBadge()" class="achievements" type="button" id="achievementsButton">
+      <span class="material-symbols-rounded">award_star</span>
+      <p>Rank</p>
+    </button>
+    <button (click)="toggleLeaderboards()" class="leaderboards" type="button" id="leaderboardButton">
+      <span class="material-symbols-rounded">leaderboard</span>
+      <p>Leaderboards</p>
+    </button>
+  </nav>
+  <div class="content">
+    <div class="quiz-options" id="game-options">
+      <h1>Complexity</h1>
+      <button class="easy" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <div class="easy-content">
+          <h2>Easy</h2>
+          <div class="easy-design">
+          </div>
+          <span class="material-symbols-rounded">play_circle</span>
+        </div>
+      </button>
+      <button class="average" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <div class="average-content">
+          <h2>Average</h2>
+          <div class="average-design">
+          </div>
+          <span class="material-symbols-rounded">play_circle</span>
+        </div>
+      </button>
+      <button class="difficult" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <div class="difficult-content">
+          <h2>Difficult</h2>
+          <div class="difficult-design">
+          </div>
+          <span class="material-symbols-rounded">play_circle</span>
+        </div>
+      </button>
+    </div>
+    <div class="badges" id="game-badge">
+        <div class="user-rank">
+          <h1>Rank</h1>
+          <div class="rank-frame">
+            <img id="rank-icon" src="" alt="">
+            <p class="rank-name"><b>{{rank}}</b></p>
+          </div>
+          <div class="progress">
+            <div class="progress-bar"></div>
+          </div>
+          <p class="points-requirements">{{userPlacement[0]?.user_points}}/{{goalPoints}} to reach <b>{{goalRank}}</b></p>
+        </div>
+        <hr>
+      <div class="rank-descriptions">
+          <div class="conscript">
+            <img id="conscript" src="assets/icons/Conscript.png" alt="">
+            <p><b>Conscript</b></p>
+            <p>0-300</p>
+            <p>Points</p>
+          </div>
+          <div class="awakened">
+            <img id="awakened" src="assets/icons/Awakened.png" alt="">
+            <p><b>Awakened</b></p>
+            <p>301-600</p>
+            <p>Points</p>
+          </div>
+          <div class="astral">
+            <img id="astral" src="assets/icons/Astral.png" alt="">
+            <p><b>Astral</b></p>
+            <p>600+</p>
+            <p>Points</p>
+        </div>
+      </div>
+    </div>
+    <div class="leaderboards" id="leaderboards">
+      <h1>Leaderboards</h1>
+      <table class="leader-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th class="border-head">Name</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="topOne">
+            <td>1</td>
+            <td>{{leadingPoints[0]?.username}}</td>
+            <td>{{leadingPoints[0]?.user_points}}</td>
+          </tr>
+          <tr class="topTwo">
+            <td>2</td>
+            <td>{{leadingPoints[1]?.username}}</td>
+            <td>{{leadingPoints[1]?.user_points}}</td>
+          </tr>
+          <tr class="topThree">
+            <td>3</td>
+            <td>{{leadingPoints[2]?.username}}</td>
+            <td>{{leadingPoints[2]?.user_points}}</td>
+          </tr>
+          <tr class="topFour">
+            <td>4</td>
+            <td>{{leadingPoints[3]?.username}}</td>
+            <td>{{leadingPoints[3]?.user_points}}</td>
+          </tr>
+          <tr class="topFive">
+            <td>5</td>
+            <td>{{leadingPoints[4]?.username}}</td>
+            <td>{{leadingPoints[4]?.user_points}}</td>
+          </tr>
+          <tr class="topSix">
+            <td>6</td>
+            <td>{{leadingPoints[5]?.username}}</td>
+            <td>{{leadingPoints[5]?.user_points}}</td>
+          </tr>
+          <tr class="topSeven">
+            <td>7</td>
+            <td>{{leadingPoints[6]?.username}}</td>
+            <td>{{leadingPoints[6]?.user_points}}</td>
+          </tr>
+          <tr class="topEight">
+            <td>8</td>
+            <td>{{leadingPoints[7]?.username}}</td>
+            <td>{{leadingPoints[7]?.user_points}}</td>
+          </tr>
+          <tr class="topNine">
+            <td>9</td>
+            <td>{{leadingPoints[8]?.username}}</td>
+            <td>{{leadingPoints[8]?.user_points}}</td>
+          </tr>
+          <tr class="topTen">
+            <td>10</td>
+            <td>{{leadingPoints[9]?.username}}</td>
+            <td>{{leadingPoints[9]?.user_points}}</td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr class="user-placement">
+            <th>{{userPlacement[0]?.placement}}</th>
+            <th class="border-head">{{userPlacement[0]?.username}} (You)</th>
+            <th>{{userPlacement[0]?.user_points}}</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</body>
+<div *ngIf="difficulty === 'Easy'" class="easy-quiz">
+  <app-easy (finish)="finishedQuiz()"></app-easy>
+  <div class="forfeit-div">
+    <button class="forfeit-btn" data-bs-target="#surrender" data-bs-toggle="modal">Surrender?</button>
+  </div>
+</div>
+<div *ngIf="difficulty === 'Average'" class="average-quiz">
+  <app-average (finish)="finishedQuiz()"></app-average>
+  <div class="forfeit-div">
+    <button class="forfeit-btn" data-bs-target="#surrender" data-bs-toggle="modal">Surrender?</button>
+  </div>
+</div>
+<div *ngIf="difficulty === 'Hard'" class="hard-quiz">
+  <app-hard (finish)="finishedQuiz()"></app-hard>
+  <div class="forfeit-div">
+    <button class="forfeit-btn" data-bs-target="#surrender" data-bs-toggle="modal">Surrender?</button>
+  </div>
+</div>
+<div class="modal quiz-greetings fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Complexity: {{header}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1>Greetings!</h1>
+        <p>{{greetings}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="close-button" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="play-button">Let's Go</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal titles fade" id="titleModal" data-bs-backdrop="static" aria-labelledby="titleLabel" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="titleLabel">Titles</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-target="#titleModal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-holder">
+          <div *ngFor="let titles of titles">
+            <button class="btn" role="button" (click)="onClickTitles(titles)" [ngClass]="{'active' : titles.title_name === selectedTitle}">
+              {{titles.title_name}}
+            </button>
+          </div>
+        </div>
+        <div class="title-description">
+            <p>{{description}}</p>
+          <hr>
+          <button id="equip-button">Equip Title</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal surrender-prompt fade" id="surrender" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Are You Sure?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you wish to surrender? The points you earned will not be recorded because of your stupidity.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="close-button" data-bs-dismiss="modal">No, Continue.</button>
+        <button class="confirm-button" data-bs-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

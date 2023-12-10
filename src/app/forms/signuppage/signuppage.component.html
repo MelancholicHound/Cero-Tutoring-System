@@ -1,0 +1,104 @@
+<body class="signup">
+  <form class="signin" action="" [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
+    <header class="logo">
+      <a routerLink="/login">
+        <img src="assets/icons/Cero.png" alt="proj">
+      </a>
+      <h1>Signup</h1>
+    </header>
+    <div class="content">
+      <div class="fullname">
+        <div class="form-floating">
+          <input type="text" class="form-control" formControlName="firstname" id="firstname" placeholder="">
+          <label for="firstname">First Name</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" formControlName="middlename" id="middlename" placeholder="">
+          <label for="middlename">Middle Name</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" formControlName="lastname" id="lastname" placeholder="">
+          <label for="lastname">Last Name</label>
+        </div>
+      </div>
+      <div class="gender">
+        <p>Gender:</p>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="Male" name="gender" id="maleGender" formControlName="gender">
+          <label class="form-check-label" for="maleGender">
+            Male
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="Female" name="gender" id="femaleGender" formControlName="gender">
+          <label class="form-check-label" for="femaleGender">
+            Female
+          </label>
+        </div>
+      </div>
+      <div class="birthdate">
+        <div class="birthday">
+          <p class="labelBday">Birthday:</p>
+          <input type="date" name="birthday" class="form-control" id="dob" formControlName="birthdate" (input)="calculateAge()" required>
+        </div>
+        <div class="age">
+          <p class="labelAge">Age:</p>
+          <input type="number" name="age" class="form-control" id="age" formControlName="age" readonly>
+        </div>
+      </div>
+      <div class="email">
+        <div class="form-floating">
+          <input type="text" class="form-control" formControlName="email" placeholder="Email" id="email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="user-creds">
+        <div class="form-floating">
+          <input type="text" class="form-control" formControlName="username" placeholder="Username" id="username" required>
+          <label for="username">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" formControlName="password" id="floatingPassword" id="password" placeholder="Password">
+          <label for="password">Password</label>
+          <div class="show-password">
+            <input type="checkbox" id="show" (click)="showPassword()">
+            <label for="show">Show password</label>
+          </div>
+        </div>
+      </div>
+      <div class="terms-div">
+          <input class="form-check-input" type="checkbox" id="invalidCheck" formControlName="checkboxControl" required>
+          <label class="form-check-label" for="invalidCheck">
+            I agree to <a href="">terms and conditions</a>.
+          </label>
+      </div>
+      <div class="submit-button">
+        <button type="submit" [disabled]="!isFormValid()" class="btn btn-primary" id="sign-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</body>
+  <form [formGroup]="otpForm" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">OTP Verification</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="success">Please check your email that we sent to you. Provide the OTP to proceed.</p>
+          <div class="input-fields">
+            <input type="number" id="digit1" maxlength="1" formControlName="otp1">
+            <input type="number" id="digit2" maxlength="1" formControlName="otp2">
+            <input type="number" id="digit3" maxlength="1" formControlName="otp3">
+            <input type="number" id="digit4" maxlength="1" formControlName="otp4">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" id="submit-button" class="submit-button">Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>

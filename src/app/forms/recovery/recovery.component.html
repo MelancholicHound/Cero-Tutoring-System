@@ -1,0 +1,61 @@
+<body>
+  <header class="recovery-header">
+    <a routerLink="/login">
+      <img src="assets\icons\Cero.png" alt="app-logo">
+    </a>
+    <h1>Account Recovery</h1>
+  </header>
+  <form [formGroup]="emailForm" class="provide-email" novalidate>
+    <label for="email" class="form-label">Enter email:</label>
+    <input type="text" class="form-control" formControlName="email" id="email">
+    <div class="invalid-feedback" *ngIf="!errorPrompt">
+      A user with this email does not exist.
+    </div>
+  </form>
+  <form [formGroup]="passwordForm" class="new-password form" action="" novalidate>
+    <div class="form-group">
+      <div class="mb-3">
+        <label for="email" class="form-label">Enter password:</label>
+        <input type="password" class="form-control" id="password" formControlName="password">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Confirm password:</label>
+        <input type="password" class="form-control" id="password-confirm" formControlName="confirm_password">
+      </div>
+    </div>
+    <div class="success-prompt">
+      <p>Change password successfull! Redirecting to login page.</p>
+    </div>
+  </form>
+  <div class="submit-button">
+    <button type="submit" [disabled]="!emailForm.valid" class="btn btn-primary" id="submit-request" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Request OTP</button>
+  </div>
+  <div class="reset-password">
+    <button type="submit" [disabled]="!passwordForm.valid" id="submit-password" class="btn btn-primary">Enter</button>
+  </div>
+  <footer>
+    <p>© Cero Tutoring System</p>
+  </footer>
+</body>
+<form [formGroup]="otpForm" class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">OTP Verification</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="success">Please check your email that we sent to you. Provide the OTP to proceed.</p>
+        <div class="input-fields">
+          <input type="number" id="digit1" maxlength="1" formControlName="otp1">
+          <input type="number" id="digit2" maxlength="1" formControlName="otp2">
+          <input type="number" id="digit3" maxlength="1" formControlName="otp3">
+          <input type="number" id="digit4" maxlength="1" formControlName="otp4">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" id="submit-button" class="submit-button">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>

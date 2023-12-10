@@ -1,0 +1,40 @@
+<body class="login">
+  <header class="logo">
+    <img src="assets/icons/Cero.png" alt="proj">
+  </header>
+  <form class="login-form needs-validation" action="" [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+    <div class="greetings">
+      <h1>Welcome to Cero!</h1>
+      <p>Please login to continue.</p>
+    </div>
+    <div class="input-group">
+      <div class="form-floating">
+        <input type="email" formControlName="email" class="form-control" id="email" value="" placeholder="Email" required>
+        <label class="form-label" for="email">Email</label>
+      </div>
+    </div>
+    <div class="input-group">
+      <div class="form-floating">
+        <input type="password" formControlName="password" class="form-control" id="password" value="" placeholder="Password" required>
+        <label class="form-label" for="password">Password</label>
+        <div class="show-password">
+          <input type="checkbox" id="show" (click)="showPassword()">
+          <label for="show">Show password</label>
+        </div>
+        <div class="invalid-feedback" *ngIf="errorPrompt">
+          Invalid email or password.
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!loginForm.valid" id="button">Login</button>
+  </form>
+  <a routerLink="/recovery">Forgot password?</a>
+  <div class="horizontal-line">
+    <hr><span>or</span><hr>
+  </div>
+  <div class="signup">
+    <p>Don't have an account? <a routerLink="/signup">Signup</a> now!</p>
+    <p>© Cero Tutoring System</p>
+  </div>
+</body>
+

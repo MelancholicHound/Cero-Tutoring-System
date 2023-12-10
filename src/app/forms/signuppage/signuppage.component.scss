@@ -1,0 +1,148 @@
+body {
+  height: 100vh;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  form.signin {
+    header {
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      img {
+        height: 13vh;
+      }
+      h1 {
+        border-left: 2px solid #1d1d1f;
+        padding-left: 20px;
+        font-weight: bolder;
+        margin: 0;
+      }
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .fullname {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .gender {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        .form-check.form-check-inline {
+          margin: 0;
+          padding-bottom: 0;
+        }
+        p {
+          margin: 0;
+        }
+      }
+      .birthdate {
+        display: flex;
+        justify-content: space-around;
+        .birthday, .age {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          p {
+            margin: 0;
+          }
+        }
+        .birthday {
+          display: flex;
+          input {
+            width: 35vw;
+          }
+        }
+        .age {
+          input {
+            width: 15vw;
+          }
+        }
+      }
+      .user-creds {
+        display: flex;
+        gap: 20px;
+      }
+      .terms-div {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+      .submit-button {
+        display: flex;
+        justify-content: center;
+        button {
+          height: 3rem;
+          width: 10rem;
+          border-radius: 35px;
+          border: none;
+          font-weight: bolder;
+          background-color: #8fc8ea;
+          color: #f2f8fd;
+          text-decoration: dashed;
+        }
+      }
+    }
+  }
+
+}
+  form.modal {
+    margin-top: 25vh;
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
+      .input-fields {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        input {
+          width: 10vw;
+          height: 11vw;
+          text-align: center;
+        }
+      }
+    }
+    .modal-footer {
+      display: flex;
+      justify-content: center;
+      button {
+        border-radius: 20px;
+        border: 1px solid #1d1d1f;
+        font-weight: bolder;
+        height: 5vh;
+      }
+      .submit-button {
+        background-color: #195b8b;
+        color: #f2f8fd;
+        width: 27vw;
+      }
+      .resend-button {
+        padding: 0 20px;
+        width: auto;
+      }
+    }
+  }
+
+  div.show-password {
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+    label {
+      margin-top: 2px;
+    }
+  }
